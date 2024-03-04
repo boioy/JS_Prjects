@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM-Projects</title>
+
+    <link rel="stylesheet" href="dom-projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      body{
+        font-family: Roboto, Arial;
+      }
+      button{
+        cursor: pointer;
+      }
+
+      .subscribe-btn{
+        background-color: black;
+        color: white;
+        font-size: 14px;
+        padding: 10px;
+        padding-left: 14px;
+        padding-right: 14px;
+        border: 0;
+        border-radius: 50px;
+        margin-bottom: 30px;
+      }
+
+      .is-subscribed{
+        background-color: rgb(202, 202, 202);
+        color: black;
+      }
+
+      .cost-input{
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .cost-button{
+        background-color:cadetblue;
+        color: white;
+        border: 0;
+        font-size: 14px;
+        padding: 12px;
+      }
+      
+
+    </style>
+  </head>
+  <body>
+
+    <p>YouTube Subscribe Button</p>
+    <button class="js-subscribe-btn subscribe-btn" onclick="
+      subscribe();
+    ">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under 40€ = +10€ shipping</p>
+    <p>Orders over 40€ = FREE shipping</p>
+    <input placeholder="Cost of order" 
+      class="js-cost-input cost-input" onkeydown="handleCostKeyDown(event)">
+    <button class="cost-button" onclick="calculateTotal()">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    
+    <script>      
+
+      function subscribe(){
+        const buttonElement = document.querySelector('.js-subscribe-btn');
+      
+        if(buttonElement.innerText === 'Subscribe'){
+          buttonElement.innerHTML = 'Subscribed';
+          buttonElement.classList.add('is-subscribed');
+        } else{
+          buttonElement.innerHTML = 'Subscribe';
+          buttonElement.classList.remove('is-subscribed')
+        }
+      }
+
+      function handleCostKeyDown(event){
+        if(event.key === 'Enter'){
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal(){
+        const costElement = document.querySelector('.js-total-cost');
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = inputElement.value;
+        if(cost < 40){
+          cost = +cost;
+          cost += 10;
+          cost = Math.floor(cost*100)/100;
+          costElement.innerHTML = `Total Cost: ${cost}€`
+        } else if (cost >= 40){
+          costElement.innerHTML = `Total Cost: ${cost}€`
+        } else{
+          costElement.innerHTML = 'Error: Please type numbers only!'
+        }
+        console.log(typeof cost);
+      }
+
+
+            
+    </script>
+  </body>
+
+
+</html>

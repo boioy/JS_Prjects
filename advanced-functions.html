@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions</title>
+  </head>
+
+  <body>
+    
+    <button class="js-button" onclick="">
+      Click
+    </button>
+    <script>
+
+      /*
+      const buttonElement = document.querySelector('.js-button');
+
+      const eventListener = () =>{
+        console.log('clicked');
+      };
+
+      buttonElement.addEventListener('click', () =>{
+        console.log('clicked2');
+      })
+
+      buttonElement.addEventListener('click', eventListener);
+
+      buttonElement.removeEventListener('click', eventListener);
+      */
+
+      //Funktionen können wie Variablen behandelt werden
+
+      /*
+      //Asynchroner Code. wartet nicht auf Timer, um anderen Code auszuführen
+      function1 = function(string){
+        console.log(string);
+      }
+
+      setTimeout(function1('timeout'), 3000);
+
+      console.log("second");
+
+      setInterval(function1('interval'), 2000);
+      */
+
+      /*
+      [
+        'make dinner',
+        'wash dishes',
+        'clean room'
+      ].forEach((value, index) => {
+        if(value === 'wash dishes'){
+          //wie continue in for-loop
+          //for-each hat kein break;
+          return;
+        }
+        console.log(index);
+        console.log(value);
+      })
+      
+
+      const arrowfunction = (param, param2) => {
+        param = 'arrow';
+        param2 = 'function';
+        console.log(param, param2);
+        return 5;
+      };
+      arrowfunction();
+
+      const oneLine = (param) => param + 3;
+      console.log(oneLine(4));
+      */
+
+      // erstellt neues Array
+      const arr = [1, -3, 5].filter((value, index) => {
+        /*
+        if(value >=0){
+          return true;
+        } else{
+          return false;
+        }
+        */
+        return value >= 0;
+      })
+      console.log(arr);
+
+      arr2 = [1, 1, 3].map(value => value * 2);
+      console.log(arr2);
+
+    </script>
+  </body>
+</html>

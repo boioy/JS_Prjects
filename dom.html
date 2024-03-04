@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-button">second Button</button>
+
+    <script>
+      /*
+      console.log(document.title);
+      
+      /*
+      document.body.innerHTML = 'hello';
+      document.title = 'good Job';
+      
+
+      console.log(document.body);
+
+      console.log(document.body.innerHTML);
+      document.body.innerHTML = '<button>Good Job!</button>';
+      */
+
+      // wählt das erste button-Element
+      console.log(document.querySelector('button').innerHTML);
+
+      document.querySelector('button').innerHTML = 'changed';
+      // Punkt, um auf class zuzugreifen
+      const buttonElement = document.querySelector('.js-button');
+      buttonElement.innerHTML = 'second changed';
+      console.log(buttonElement);
+
+      
+    </script>
+  </body>
+
+
+</html>

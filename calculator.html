@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles/calculator.css">
+</head>
+
+<body>
+
+  <div class="calculator">
+
+    <div class="display">
+      <p class="js-display-calc display-calc"></p>
+      <p class="js-display-result display-result"></p>
+    </div>
+
+    <main>
+      <div class="buttons-grid">
+
+        <div class="numbers">
+
+          <button onclick="addToCalc('7')">7</button>
+          <button onclick="addToCalc('8');">8</button>
+          <button onclick="addToCalc('9');">9</button>
+          <button onclick="addToCalc('4');">4</button>
+          <button onclick="addToCalc('5');">5</button>
+          <button onclick="addToCalc('6');">6</button>
+          <button onclick="addToCalc('1');">1</button>
+          <button onclick="addToCalc('2');">2</button>
+          <button onclick="addToCalc('3');">3</button>
+          <button onclick="clearCalc();">C</button>
+          <button onclick="addToCalc('0');">0</button>
+          <button onclick="addToCalc('.')">.</button>
+          <button onclick="console.log(calculation)">Clear</button>
+
+        </div>
+
+        <div class="calc-chars">
+
+          <button onclick="addToCalc('/');">/</button>
+          <button onclick="addToCalc('*');">*</button>
+          <button onclick="addToCalc('-');">-</button>
+          <button onclick="addToCalc('+');">+</button>
+          <button onclick="calcResult()">=</button>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="scripts/calculator.js"></script>
+</body>
+
+</html>
