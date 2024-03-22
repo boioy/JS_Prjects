@@ -1,24 +1,53 @@
 let calculation = '';
+let operators = [];
 
-let buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('button');
+const operator_btns = document.querySelectorAll('.op-btn');
+const dot_btn = document.querySelector('.dot-btn').innerHTML;
+const equal_btn = document.querySelector('.equal-btn').innerHTML;
+const del_btn = document.querySelector('.del-btn').innerHTML;
+const clear_btn = document.querySelector('.clear-btn').innerHTML;
 
-buttons.forEach((buttonElement, index) => {
+operator_btns.forEach(operatorElement => {
+  operators.push(operatorElement.innerHTML);
+})
+
+buttons.forEach(buttonElement => {
   buttonElement.addEventListener('click', () => {
     let char = buttonElement.innerHTML;
-    if (char === '='){
-      calcResult();
-    } else if (char === 'C'){
-      backspace();
-    } else if (char === 'Clear'){
-      clearCalc();
+
+    // Wenn letzter char Rechenoperator ist, soll es ersetzt werden
+    if (operators.includes(char)){
+      if (operators.includes(calculation.slice(-1))){
+        calculation = calculation.slice(0,-1) + char;
+        document.querySelector('.js-display-calc').innerHTML = calculation;
+      } else{
+        addToCalc(char);
+      }
+    } 
+    
+    // Math Error wenn letzter char = operator
+    else if (char === equal_btn){
+      if(operators.includes(calculation.slice(-1))){
+        document.querySelector('.js-display-result').innerHTML = 'Math Error';
+      } else calcResult();
     }
-    else{
+    
+    else if (char === dot_btn){
+      if (calculation.slice(-1) === dot_btn){
+        return;
+      } else addToCalc(char);
+    } else if (char === del_btn){
+      backspace();
+    } else if (char === clear_btn){
+      clearCalc();
+    } else{
       addToCalc(char);
     }
     
   });
 });
-      
+
 function addToCalc(char){
   calculation += char;
   document.querySelector('.js-display-calc').innerHTML = calculation;

@@ -37,12 +37,12 @@ body{
   margin-left: 8px;
 }
 
-.buttons-grid{
+.buttons-container{
   display: flex;
   flex-direction: row;
 }
 
-.buttons-grid button{
+.buttons-container button{
   border: 0;
   border-radius: 500px;
   font-size: 18px;
@@ -51,7 +51,7 @@ body{
   /*padding: 24px 14px;*/
 }
 
-.numbers{
+.numbers-container{
   flex: 3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -60,13 +60,13 @@ body{
   margin: 10px;
 }
 
-.calc-chars{
+.operators-container{
   flex: 1;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 10px;
   margin: 10px;
 }
-.calc-chars button{
+.operators-container button{
   background-color: coral;
 }
