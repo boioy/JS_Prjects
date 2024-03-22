@@ -70,3 +70,10 @@ body{
 .operators-container button{
   background-color: coral;
 }
+.operators-container button:hover{
+  background-color: rgb(250, 116, 67);
+}
+.operators-container button:active{
+  background-color: rgb(241, 99, 47);
+}
+
